@@ -35,6 +35,9 @@ class Game:
         self.run = True
         self.end = True
 
+        pygame.mixer.music.load("ukulele.mp3")
+        pygame.mixer.music.play(-1,0.0)
+
     def update_score(self):
 
         self.font = pygame.font.SysFont(None,25)
@@ -112,7 +115,7 @@ class Game:
                 self.rand_xy = random.choice(self.hole_position)
                 self.redrawDisplay()
                 self.counter = 0
-
+            
     def game_intro(self):
 
         self.gameDisplay.blit(self.ibg, (0, 0))
