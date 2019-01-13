@@ -20,6 +20,7 @@ class Game:
         self.rab_width = 41
         self.rab_height = 50
         self.rabbit = pygame.image.load('rab.png')
+        self.rabbit_2 = pygame.image.load('rab3.png')
 
         # self.pointer = pygame.image.load('hammer.png')
         self.mx, self.my = pygame.mouse.get_pos()
@@ -96,6 +97,8 @@ class Game:
                     self.mx, self.my = pygame.mouse.get_pos()
                     if (self.rand_xy[0] + self.rab_width > self.mx > self.rand_xy[0]) and (self.rand_xy[1] + self.rab_height > self.my > self.rand_xy[0]):
                         self.score += 10
+                        self.gameDisplay.blit(self.rabbit_2, (self.rand_xy))
+                        pygame.display.update()
                     else:
                         self.score -= 5
 
@@ -115,7 +118,7 @@ class Game:
                 self.rand_xy = random.choice(self.hole_position)
                 self.redrawDisplay()
                 self.counter = 0
-            
+
     def game_intro(self):
 
         self.gameDisplay.blit(self.ibg, (0, 0))
