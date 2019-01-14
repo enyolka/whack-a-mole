@@ -105,12 +105,14 @@ class Game:
             self.counter += 1
             self.time()
 
-            if self.score <= 50:
+            if self.timer >= 50:
                 self.speed = 1000
-            elif 50 < self.score <= 150:
-                self.speed = 900
-            elif 150 < self.score <= 300:
-                self.speed = 800
+            elif 50 < self.timer <= 40:
+                self.speed = 925
+            elif 40 < self.timer >= 25:
+                self.speed = 850
+            elif 25 < self.timer <= 10:
+                self.speed = 775
             else:
                 self.speed = 750
 
@@ -153,7 +155,6 @@ class Game:
                         self.run = True
                         self.score = 0
                         self.game_loop()
-
 
 my_game = Game()
 my_game.game_intro()
